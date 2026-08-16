@@ -86,9 +86,13 @@ class Qwen:
                 })
             messages = [{"role": "user", "content": content}]
 
-        extra = {"enable_thinking": True}
-        if self.mode == "multimodal":
-            extra["vl_high_resolution_images"] = False
+        extra = {
+    "enable_thinking": self.cfg["enable_thinking"]
+}
+if self.mode == "multimodal":
+    extra["vl_high_resolution_images"] = self.cfg[
+        "vl_high_resolution_images"
+    ]
 
         r = self.client.chat.completions.create(
             model=self.model,
@@ -155,7 +159,6 @@ class GPT:
 
 class Gemini:
     name = "gemini"
-    validation_batch_size = 220
 
     def __init__(self, mode, cfg, max_tokens):
         self.mode, self.cfg, self.model, self.max_tokens = mode, cfg, cfg["model"], max_tokens
