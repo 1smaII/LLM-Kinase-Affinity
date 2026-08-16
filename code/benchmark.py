@@ -25,7 +25,7 @@ def find_data():
         key=lambda p: p.parent.name.casefold(),
     )
 
-def clean_sheet(rows, seqs, catalog, images):
+def process_sheet(rows, seqs, catalog, images):
     for h, row in enumerate(rows):
         cols = [norm(x) for x in row]
 
@@ -87,7 +87,7 @@ def clean_sheet(rows, seqs, catalog, images):
         break
     return rows
 
-def prepare(xlsx):
+def prepare_input(xlsx):
     wb = load_workbook(
         xlsx,
         data_only=True,
@@ -104,7 +104,7 @@ def prepare(xlsx):
             for r in ws.iter_rows(values_only=True)
         ]
 
-        rows = clean_sheet(rows,seqs,catalog, images,)
+        rows = process_sheet(rows, seqs, catalog, images)
         sheets.append({
             "sheet_name": ws.title,
             "rows": rows,
@@ -181,7 +181,7 @@ def main():
 
     for xlsx in files:
         print(f"\n数据集：{xlsx.parent.name}")
-        text, images = prepare(xlsx)
+        text, images = prepare_input(xlsx)
 
         if args.mode == "multimodal":
             print(f"图片数：{len(images)}")
