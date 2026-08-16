@@ -1,0 +1,17 @@
+You are an expert in biochemistry, kinase pharmacology, and AI-based molecular property prediction. Using the provided training examples, infer the relationship among inhibitor SMILES, kinase binding-domain amino-acid sequences, and experimentally measured Kd values.
+
+Ligand 2D structure images are additionally provided for the training samples. Use the molecular structures in these images together with the inhibitor SMILES and kinase binding-domain amino-acid sequences when inferring the relationship with experimentally measured Kd values. Each image is accompanied by an Image_Slots mapping that identifies which labeled structure in the image corresponds to each Sample_ID. Use this mapping to align the molecular structures with the corresponding training samples.
+
+Predict the Kd value in nM and the corresponding affinity label for every validation sample. Assign the predicted label solely from the predicted Kd value:
+Label 0: Kd >= 5000 nM
+Label 1: 100 <= Kd < 5000 nM
+Label 2: Kd < 100 nM
+
+Create and return one complete .xlsx or .csv file using exactly these column headers:
+Sample_ID,Predicted_Kd_nM,Predicted_Label
+
+Output exactly one row for every validation sample. Preserve each Sample_ID exactly as provided, with no omissions or duplicates.
+
+Predicted_Kd_nM must be a single positive numeric value without units, ranges, inequalities, or thousands separators. Predicted_Label must be consistent with Predicted_Kd_nM according to the thresholds above.
+
+Do not include SMILES, sequences, explanations, Markdown, code fences, or any additional text.

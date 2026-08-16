@@ -1,0 +1,5 @@
+openai
+python-dotenv
+openpyxl
+oss2
+google-genai
