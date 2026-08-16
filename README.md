@@ -7,7 +7,7 @@ The study evaluates text-based and multimodal ICL across multiple LLMs and compa
 ## Repository Structure
 
 ```text
-LLM-Kinase-Affinity/
+LLM Kinase-Inhibitor Affinity/
 ├── data/
 │   ├── text-ICL/          # Datasets for text-based(Web txt&API text) ICL
 │   └── bimodal-ICL/       # Datasets and 2D molecular structure images for multimodal ICL
