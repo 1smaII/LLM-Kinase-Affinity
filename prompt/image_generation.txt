@@ -10,9 +10,9 @@ DatasetCode is the uppercase first three alphabetic characters of the cleaned da
 
 Preserve source-row order and exact valid SMILES, sequence, and Kd values. Kd must be numeric, finite, positive, and remain in nM. Mark missing/invalid SMILES, sequence, or Kd; duplicate IDs; and unresolved kinase/split as failed. For training rows only, also mark RDKit rendering errors as failed. Do not output failed rows.
 
-Render every valid training ligand with RDKit on an identical white 480×240 canvas, centered, maximized, and unclipped.
+Render every valid training ligand with RDKit on an identical white ***×*** canvas, centered, maximized, and unclipped.
 
-Process the training splits independently. Render and group only successful training ligands. In source-row order, combine every three successful training ligands into one 480×720 vertical PNG:
+Process the training splits independently. Render and group only successful training ligands. In source-row order, combine every three successful training ligands into one ***×*** vertical PNG:
 - place slots A, B, and C from top to bottom;
 - show only the A/B/C labels and molecular structures;
 - use identical margins, fonts, colors, and RDKit settings for all training images;
