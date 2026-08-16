@@ -10,7 +10,8 @@ The study evaluates text-based and multimodal ICL across multiple LLMs and compa
 LLM Kinase-Inhibitor Affinity/
 ├── data/
 │   ├── text-ICL/          # Datasets for text-based(Web txt&API text) ICL
-│   └── bimodal-ICL/       # Datasets and 2D molecular structure images for multimodal ICL
+│   ├── bimodal-ICL/       # Datasets and 2D molecular structure images for multimodal ICL
+│   └── Log_error/         # Datasets used for absolute logarithmic error analysis in the case study
 │
 ├── prompt/                # Prompts used for experiments and the construction of the dual-modal dataset
 │
