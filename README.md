@@ -21,7 +21,7 @@ LLM Kinase-Inhibitor Affinity/
 
 ## Data
 
-The datasets are derived from those used in **GPT4Kinase** and originally obtained from **BindingDB**. They contain kinase sequences, inhibitor SMILES, and experimental binding affinity ((K_d)) information.
+The datasets are derived from those used in **GPT4Kinase** and originally obtained from **BindingDB**. They contain kinase sequences, inhibitor SMILES, and experimental binding affinity ((Kd)) information.
 
 The "text-ICL" directory contains datasets used for text-based ICL experiments.
 
