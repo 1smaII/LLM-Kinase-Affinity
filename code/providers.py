@@ -198,7 +198,7 @@ class Gemini:
         }
         self.cache[key] = item
         save_json(self.cache_file, self.cache)
-    return item
+        return item
 
     @staticmethod
     def _norm(x):
@@ -207,7 +207,7 @@ class Gemini:
     def _validation_groups(self, text):
         data = json.loads(text)
         validation_i = next(
-            validation_i = 1
+            i
             for i, sheet in enumerate(data["sheets"])
             if sheet["sheet_name"] == "validation"
         )
