@@ -9,10 +9,10 @@ The study evaluates text-based and multimodal ICL across multiple LLMs and compa
 ```text
 LLM-Kinase-Affinity/
 ├── data/
-│   ├── text-ICL/          # Datasets for text-based ICL
+│   ├── text-ICL/          # Datasets for text-based(Web txt&API text) ICL
 │   └── bimodal-ICL/       # Datasets and 2D molecular structure images for multimodal ICL
 │
-├── prompt/                # Prompt templates used in the experiments
+├── prompt/                # Prompts used for experiments and the construction of the dual-modal dataset
 │
 ├── code/                  # Scripts for data processing, model inference, and evaluation
 │
@@ -23,20 +23,20 @@ LLM-Kinase-Affinity/
 
 The datasets are derived from those used in **GPT4Kinase** and originally obtained from **BindingDB**. They contain kinase sequences, inhibitor SMILES, and experimental binding affinity ((K_d)) information.
 
-The 'text-ICL' directory contains datasets used for text-based ICL experiments.
+The "text-ICL" directory contains datasets used for text-based ICL experiments.
 
-The 'bimodal-ICL' directory additionally contains standardized 2D molecular structure images associated with the training examples.
+The "bimodal-ICL" incorporates the bimodal dataset we constructed. Specifically, it was generated using GPT-5.5 based on a prompting approach and contains standardized 2D structural images of ternary molecules.
 
 ## Prompts
 
-The `prompt` directory contains the prompt templates used for:
+The "prompt" directory contains the prompt templates used for:
 
 * web-interface text ICL;
 * API-based text ICL;
 * API-based multimodal ICL.
 
 ## Code
-The 'code' directory contains scripts used for data processing, API-based model inference, multimodal input construction, and prediction evaluation.
+The "code" directory contains scripts used for data processing, API-based model inference, multimodal input construction, and prediction evaluation.
 The experiments include GPT, Qwen, and Gemini models under a unified evaluation workflow.
 
 ## Citation
