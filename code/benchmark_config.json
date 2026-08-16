@@ -28,5 +28,6 @@
     "media_resolution": "medium",
     "cache_hours": 46,
     "cache_file": "gemini_files_cache.json"
+    "validation_batch_size": 220
   }
 }
