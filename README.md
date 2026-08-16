@@ -25,7 +25,7 @@ The datasets are derived from those used in **GPT4Kinase** and originally obtain
 
 The "text-ICL" directory contains datasets used for text-based ICL experiments.
 
-The "bimodal-ICL" incorporates the bimodal dataset we constructed. Specifically, it was generated using GPT-5.5 based on a prompting approach and contains standardized 2D structural images of ternary molecules.
+The "bimodal-ICL" incorporates the bimodal dataset we constructed. Specifically, it was generated using GPT-5.5 based on a prompting approach and contains standardized 2D structural images of three molecules.
 
 ## Prompts
 
