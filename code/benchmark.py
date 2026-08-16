@@ -110,7 +110,7 @@ def prepare_input(xlsx):
             "rows": rows,
         })
     wb.close()
-    data = { "file_name": xlsx.name,"sheets": sheets}
+    data = {"file_name": xlsx.name, "sheets": sheets}
     if catalog:
         data["sequence_catalog"] = {
             "columns": [
@@ -128,12 +128,12 @@ def prepare_input(xlsx):
         for path, slots in images.items()
     ]
 
-    text = json.dumps(data,ensure_ascii=False,default=str,separators=(",", ":"))
+    text = json.dumps(data, ensure_ascii=False, default=str, separators=(",", ":"))
     return text, imgs
 
 def save(mode, model, xlsx, text):
     folder = RESULTS / mode / model.name
-    folder.mkdir( parents=True,exist_ok=True,)
+    folder.mkdir(parents=True, exist_ok=True)
     out = folder / f"{xlsx.parent.name}.csv"
 
     out.write_text(
@@ -151,8 +151,8 @@ def main():
     )
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("mode",choices=["text", "multimodal"],)
-    parser.add_argument("model", nargs="?",default="all", choices=["qwen", "gpt", "gemini", "all"])
+    parser.add_argument("mode", choices=["text", "multimodal"])
+    parser.add_argument("model", nargs="?", default="all", choices=["qwen", "gpt", "gemini", "all"])
     args = parser.parse_args()
 
     if args.model == "all":
@@ -160,11 +160,11 @@ def main():
     else:
         names = [args.model]
 
-    models = [build_provider(name, args.mode,cfg[name],cfg["max_tokens"])
+    models = [build_provider(name, args.mode, cfg[name], cfg["max_tokens"])
         for name in names
     ]
 
-    prompt = (ROOT / cfg["prompts"][args.mode]).read_text(encoding="utf-8" ).strip()
+    prompt = (ROOT / cfg["prompts"][args.mode]).read_text(encoding="utf-8").strip()
     files = find_data()
 
     if not files:
@@ -179,8 +179,8 @@ def main():
 
         for model in models:
             print(f"{args.mode} | "f"{model.name} | "f"{model.model}")
-            result = model.generate(prompt, text,images,xlsx)
-            save(args.mode,model, xlsx,result)
+            result = model.generate(prompt, text, images, xlsx)
+            save(args.mode, model, xlsx, result)
     print("\n全部完成。")
 
 if __name__ == "__main__":
