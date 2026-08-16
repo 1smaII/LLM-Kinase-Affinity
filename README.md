@@ -14,7 +14,7 @@ LLM-Kinase-Affinity/
 │
 ├── prompt/                # Prompts used for experiments and the construction of the dual-modal dataset
 │
-├── code/                  # Scripts for data processing, model inference, and evaluation
+├── code/                  # Scripts for data processing, and model inference.
 │
 └── README.md
 ```
