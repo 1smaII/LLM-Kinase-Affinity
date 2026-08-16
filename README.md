@@ -36,7 +36,7 @@ The "prompt" directory contains the prompt templates used for:
 * API-based multimodal ICL.
 
 ## Code
-The "code" directory contains scripts used for data processing, API-based model inference, multimodal input construction, and prediction evaluation.
+The "code" directory contains scripts used for data processing, API-based model inference,and multimodal input construction.
 The experiments include GPT, Qwen, and Gemini models under a unified evaluation workflow.
 
 ## Citation
