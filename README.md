@@ -1,4 +1,4 @@
-# LLM-Kinase-Affinity
+# LLM Kinase-Inhibitor Affinity
 
 This repository provides the **datasets, prompts, and code** used in our study of kinase–inhibitor binding affinity prediction with large language models (LLMs) and in-context learning (ICL).
 
