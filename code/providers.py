@@ -166,6 +166,7 @@ class Gemini:
         self.cache_file = ROOT / cfg["cache_file"]
         self.cache = load_json(self.cache_file)
         self.ttl = cfg["cache_hours"] * 3600
+        self.validation_batch_size = cfg["validation_batch_size"]
 
     def upload(self, p):
         key, now = file_hash(p), time.time()
