@@ -1,0 +1,62 @@
+Use Python only; do not use an image-generation model. Read all uploaded Excel workbooks with pandas/openpyxl.
+
+Use existing Sample ID, Kinase/Target, Dataset, Split, and sheet names when available. Otherwise derive Dataset, Kinase, and Split only from the sheet or filename—never from the ligand or sequence.
+
+If Sample ID is absent, create deterministic IDs:
+<DatasetCode>_train_001
+<DatasetCode>_val_001
+
+DatasetCode is the uppercase first three alphabetic characters of the cleaned dataset name.
+
+Preserve source-row order and exact valid SMILES, sequence, and Kd values. Kd must be numeric, finite, positive, and remain in nM. Mark missing/invalid SMILES, sequence, or Kd; duplicate IDs; and unresolved kinase/split as failed. For training rows only, also mark RDKit rendering errors as failed. Do not output failed rows.
+
+Render every valid training ligand with RDKit on an identical white 480×240 canvas, centered, maximized, and unclipped.
+
+Process the training splits independently. Render and group only successful training ligands. In source-row order, combine every three successful training ligands into one 480×720 vertical PNG:
+- place slots A, B, and C from top to bottom;
+- show only the A/B/C labels and molecular structures;
+- use identical margins, fonts, colors, and RDKit settings for all training images;
+- if one or two ligands remain, create an A-only or A/B PNG, respectively.
+
+Create:
+
+ICL_data/
+└── <DatasetCode>/
+    ├── train/
+    │   └── <DatasetCode>_train_panel_001.png
+    ├── dataset.xlsx
+    ├── validation_truth.xlsx
+    └── failed_samples.csv
+
+dataset.xlsx must contain exactly two sheets.
+
+Sheet “train” columns:
+Sample_ID
+Ligand_SMILES
+BindingDB_Target_Chain_Sequence
+True_Kd_nM
+Image_Path
+Image_Slot
+
+Sheet “validation” columns:
+Sample_ID
+Ligand_SMILES
+BindingDB_Target_Chain_Sequence
+
+Within the training split, rows grouped in the same PNG must share the same Image_Path and use Image_Slot A, B, or C according to their vertical position. Do not include true Kd, Image_Path, or Image_Slot in the validation sheet.
+
+Use relative POSIX paths, for example:
+train/CYC_train_panel_001.png
+
+validation_truth.xlsx must contain exactly:
+Sample_ID
+True_Kd_nM
+
+Include only validation samples that pass all non-rendering validation checks.
+
+failed_samples.csv must contain exactly:
+Sample_ID
+Split
+Failure_Reason
+
+Zip the complete ICL_data directory as ICL_data.zip. Report per-dataset and total counts for successful training rows, training PNGs, successful validation rows, truth rows, and failed rows. Do not claim completion unless generation and verification both succeed.
