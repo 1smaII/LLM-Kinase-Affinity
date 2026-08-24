@@ -38,8 +38,11 @@ The "prompt" directory contains the prompt templates used for:
 
 ## Code
 The "code" directory contains scripts used for data processing, API-based model inference,and multimodal input construction.
+
 The experiments include GPT, Qwen, and Gemini models under a unified evaluation workflow.
+
 Before running the script, please configure the relevant information for the Alibaba Cloud OSS service, as well as the API keys for GPT and Gemini, in the `env` file.
+Next, simply run the benchmark.py file.
 
 ## Citation
 
