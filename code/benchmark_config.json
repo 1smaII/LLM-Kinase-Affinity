@@ -8,7 +8,7 @@
 
   "qwen": {
     "model": "qwen3.7-plus-2026-05-26",
-    "base_url": "https://llm-3nfwhyw8h21uqw4z.cn-beijing.maas.aliyuncs.com/compatible-mode/v1",
+    "base_url": ,
     "enable_thinking": true,
     "max_pixels": 345600,
     "vl_high_resolution_images": false,
